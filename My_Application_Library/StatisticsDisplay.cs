@@ -1,22 +1,25 @@
-using System;
-
 public class StatisticsDisplay : IDisplay
 {
-    private double maxTemperature = double.MinValue;
-    private double minTemperature = double.MaxValue;
-    private double sumTemperature = 0;
-    private int numReadings = 0;
+    private readonly WeatherData weatherData;
 
-    public void Update(double temperature, double humidity, double pressure)
+    private StatisticsDisplay()
     {
-        maxTemperature = Math.Max(maxTemperature, temperature);
-        minTemperature = Math.Min(minTemperature, temperature);
-        sumTemperature += temperature;
-        numReadings++;
-
-        Console.WriteLine($"          Statistics: Max Temperature {maxTemperature}");
-        Console.WriteLine($"          Statistics: Min Temperature {minTemperature});
-        Console.WriteLine($"          Statistics: Average Temperature {sumTemperature / numReadings}");
-
+        weatherData = WeatherData.GetInstance();
     }
+
+    public static StatisticsDisplay GetInstance()
+    {
+        return new StatisticsDisplay();
+    }
+
+    public void Update()
+    {
+        Display();
+    }
+
+    public void Display()
+    {
+        // Calculate and display statistics
+        Console.WriteLine("Weather statistics:");
+    }
 }

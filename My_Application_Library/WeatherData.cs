@@ -1,44 +1,49 @@
-using System;
-using System.Collections.Generic;
-
-public sealed class WeatherData
+public class WeatherData
 {
-    private static readonly WeatherData instance = new WeatherData();
-    private Random random = new Random();
+    private static WeatherData instance;
+    private readonly Random random;
+    private float temperature;
+    private float humidity;
+    private float pressure;
 
-    private WeatherData() { }
-
-    public static WeatherData Instance => instance;
-
-    private double temperature;
-    private double humidity;
-    private double pressure;
-
-    public void GenerateRandomData()
+    private WeatherData()
     {
-        temperature = random.NextDouble() * 100;
-        humidity = random.NextDouble() * 100;
-        pressure = random.NextDouble() * 100;
-        NotifyObservers();
+        random = new Random();
     }
 
-    private List<IDisplay> displays = new List<IDisplay>();
-
-    public void RegisterObserver(IDisplay display)
+    public static WeatherData GetInstance()
     {
-        displays.Add(display);
+        return instance ??= new WeatherData();
     }
 
-    public void RemoveObserver(IDisplay display)
+    public void SetMeasurements()
     {
-        displays.Remove(display);
+        temperature = random.Next(-20, 40);
+        humidity = random.Next(0, 100);
+        pressure = random.Next(980, 1040);
+        MeasurementsChanged();
     }
 
-    public void NotifyObservers()
+    public float GetTemperature()
     {
-        foreach (var display in displays)
-        {
-            display.Update(temperature, humidity, pressure);
-        }
+        return temperature;
     }
+
+    public float GetHumidity()
+    {
+        return humidity;
+    }
+
+    public float GetPressure()
+    {
+        return pressure;
+    }
+
+    private void MeasurementsChanged()
+    {
+        // Notify observers
+        CurrentCondition.GetInstance().Update();
+        StatisticsDisplay.GetInstance().Update();
+        ForecastDisplay.GetInstance().Update();
+    }
 }

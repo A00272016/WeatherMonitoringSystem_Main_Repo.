@@ -1,24 +1,13 @@
-﻿using System;
-
-namespace WeatherMonitoringApp
+﻿// Program.cs
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            WeatherData weatherData = WeatherData.Instance;
+        WeatherData weatherData = WeatherData.GetInstance();
+        WeatherStation weatherStation = new WeatherStation();
+        weatherStation.GetUserInput();
 
-            Console.WriteLine("Enter 'q' to quit or any other key to generate random weather data:");
-
-            while (true)
-            {
-                string input = Console.ReadLine();
-
-                if (input.ToLower() == "q")
-                    break;
-
-                weatherData.GenerateRandomData();
-            }
-        }
-    }
+        weatherData.SetMeasurements();
+        
+    }
 }

@@ -1,9 +1,29 @@
-using System;
-
-public class CurrentConditionsDisplay : IDisplay
+public class CurrentCondition : IDisplay
 {
-    public void Update(double temperature, double humidity, double pressure)
+    private readonly WeatherData weatherData;
+
+    private CurrentCondition()
     {
-        Console.WriteLine($"Current Conditions: Temperature {temperature}, Humidity {humidity}, Pressure {pressure}");
+        weatherData = WeatherData.GetInstance();
     }
+
+    public static CurrentCondition GetInstance()
+    {
+        return new CurrentCondition();
+    }
+
+    public void Update()
+    {
+        Display();
+    }
+
+    public void Display()
+    {
+        float temperature = weatherData.GetTemperature();
+        float humidity = weatherData.GetHumidity();
+        float pressure = weatherData.GetPressure();
+
+        // Display current conditions
+        Console.WriteLine($"Current conditions: {temperature}F degrees and {humidity}% humidity");
+    }
 }

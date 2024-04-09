@@ -1,24 +1,25 @@
-using System;
-
 public class ForecastDisplay : IDisplay
 {
-    public void Update(double temperature, double humidity, double pressure)
+    private readonly WeatherData weatherData;
+
+    private ForecastDisplay()
     {
-        string forecast;
-
-        if (temperature > 25 && humidity > 50)
-        {
-            forecast = "Hot and Humid";
-        }
-        else if (temperature < 10)
-        {
-            forecast = "Cold";
-        }
-        else
-        {
-            forecast = "Moderate";
-        }
-
-        Console.WriteLine($"                   Forecast: {forecast}");
+        weatherData = WeatherData.GetInstance();
     }
+
+    public static ForecastDisplay GetInstance()
+    {
+        return new ForecastDisplay();
+    }
+
+    public void Update()
+    {
+        Display();
+    }
+
+    public void Display()
+    {
+        // Display weather forecast
+        Console.WriteLine("Weather forecast:");
+    }
 }
