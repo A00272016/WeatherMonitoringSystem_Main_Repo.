@@ -1,3 +1,7 @@
+/// <summary>
+/// This is for the weather forecast display.
+/// </summary>
+
 public class ForecastDisplay : IDisplay
 {
     private readonly WeatherData weatherData;
@@ -19,7 +23,6 @@ public class ForecastDisplay : IDisplay
 
     public void Display()
     {
-        // Display weather forecast
         Console.WriteLine("Weather forecast:");
     }
 }

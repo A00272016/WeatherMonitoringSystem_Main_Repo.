@@ -1,3 +1,6 @@
+/// <summary>
+/// This is for the current condition.
+/// </summary>
 public class CurrentCondition : IDisplay
 {
     private readonly WeatherData weatherData;

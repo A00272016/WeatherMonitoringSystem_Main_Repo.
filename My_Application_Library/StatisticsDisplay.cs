@@ -1,3 +1,7 @@
+/// <summary>
+/// Represents the weather statistics display.
+/// </summary>
+
 public class StatisticsDisplay : IDisplay
 {
     private readonly WeatherData weatherData;
@@ -19,7 +23,6 @@ public class StatisticsDisplay : IDisplay
 
     public void Display()
     {
-        // Calculate and display statistics
         Console.WriteLine("Weather statistics:");
     }
 }

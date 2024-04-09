@@ -1,4 +1,6 @@
-// WeatherStation.cs
+/// <summary>
+/// Represents the weather station factory.
+/// </summary>
 public class WeatherStation
 {
     public void GetUserInput()
@@ -15,7 +17,7 @@ public class WeatherStation
         switch (choice)
         {
             case "1":
-                displayType = DisplayType.CurrentConditions;
+                displayType = DisplayType.CurrentCondition;
                 break;
             case "2":
                 displayType = DisplayType.Statistics;
@@ -31,9 +33,12 @@ public class WeatherStation
 
 }
 }
+/// <summary>
+/// Enumerates the types of displays.
+/// </summary>
 public enum DisplayType
 {
-    CurrentConditions,
+    CurrentCondition,
     Statistics,
     Forecast
 }
