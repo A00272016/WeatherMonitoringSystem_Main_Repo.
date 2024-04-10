@@ -1,31 +1,17 @@
 /// <summary>
 /// This is for the current condition.
 /// </summary>
-public class CurrentCondition : IDisplay
+public class CurrentConditionsDisplay : IDisplay
 {
-    private readonly WeatherData weatherData;
+    private float temperature;
+    private float humidity;
+    private float pressure;
 
-    private CurrentCondition()
+    public void Display(float temperature, float humidity, float pressure)
     {
-        weatherData = WeatherData.GetInstance();
-    }
-
-    public static CurrentCondition GetInstance()
-    {
-        return new CurrentCondition();
-    }
-
-    public void Update()
-    {
-        Display();
-    }
-
-    public void Display()
-    {
-        float temperature = weatherData.GetTemperature();
-        float humidity = weatherData.GetHumidity();
-        float pressure = weatherData.GetPressure();
-
-        Console.WriteLine($"Current conditions: {temperature}F degrees and {humidity}% humidity");
-    }
+        this.temperature = temperature;
+        this.humidity = humidity;
+        this.pressure = pressure;
+        Console.WriteLine($"Current Conditions: {temperature}F, {humidity}% humidity, {pressure}Pa pressure");
+    } 
 }
