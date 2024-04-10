@@ -1,7 +1,6 @@
 /// <summary>
 /// Represents the weather statistics display.
 /// </summary>
-
 public class StatisticsDisplay : IDisplay
 {
     private readonly WeatherData weatherData;
@@ -25,4 +24,9 @@ public class StatisticsDisplay : IDisplay
     {
         Console.WriteLine("Weather statistics:");
     }
+    public void Display(float temperature, float humidity, float pressure)
+    {
+        // Display statistics
+        Console.WriteLine($"Statistics: Temperature {temperature}, Humidity {humidity}, Pressure {pressure}");
+    }
 }

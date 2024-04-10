@@ -1,9 +1,11 @@
+namespace My_Application_Library;
+
 /// <summary>
 /// Represents the weather station factory.
 /// </summary>
 public class WeatherStation
 {
-    public void IDisplay SelectDisplay(string choice)
+    public static IDisplay SelectDisplay(string choice)
     {
         switch (choice)
         {
@@ -11,17 +13,16 @@ public class WeatherStation
                CurrentCondition A = new CurrentCondition();
                return A;
                 //break;
-            case "2":
-                ForecastDisplay B = new ForecastDisplay();
-               return B;                
-               //break;
-            case "3":
-                StatisticsDisplay C = new StatisticsDisplay();
-               return C;                
-               //break;
+            // case "2":
+            //     ForecastDisplay B = new ForecastDisplay();
+            //    return B;                
+            //    //break;
+            // case "3":
+            //     StatisticsDisplay C = new StatisticsDisplay();
+            //    return C;                
+            //    //break;
             default:
-                Console.WriteLine("Invalid choice. Please try again.");
-                return;
+            throw new Exception("Invalid Input");
         }
     }
 }

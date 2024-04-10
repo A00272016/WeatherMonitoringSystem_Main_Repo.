@@ -1,7 +1,7 @@
 /// <summary>
 /// This is for the current condition.
 /// </summary>
-public class CurrentConditionsDisplay : IDisplay
+public class CurrentCondition : IDisplay
 {
     private float temperature;
     private float humidity;

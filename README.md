@@ -8,5 +8,6 @@ Steps in which I had Completed the assignment:-
 3.Successfully MAde all the files in class library and written some code weatherdata.cs
 4.Facing Some Error In code ANd trying to solve it in order to run my program successfully
 5.Trying To resolve the warnings in my code.
-6.Still Facing some warnigs in the codw and trying to resolve it 
-7.Done some changes in code 
+6.Still Facing some warnigs in the codw and trying to resolve it. 
+7.Done some changes in code.
+8.Done Some Changes Ans Successfully get output for current conditions 

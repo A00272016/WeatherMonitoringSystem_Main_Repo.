@@ -1,6 +1,4 @@
-using System;
-using System.Collection.Generic;
-
+using System.Collections.Generic;
 /// <summary>
 /// This is for the weather data subject.
 /// </summary>
@@ -8,9 +6,9 @@ public class WeatherData
 {
     private static WeatherData instance;
     //private readonly Random random;
-    private float temperature;
-    private float humidity;
-    private float pressure;
+    public float temperature;
+    public float humidity;
+    public float pressure;
 
     private WeatherData()
     {
@@ -38,12 +36,12 @@ public class WeatherData
     }
     public void Subscribe(IDisplay display)
     {
-        displays.Add(display)
+        displays.Add(display);
     }
     
     public void Unsubscribe(IDisplay display)
     {
-        displays.Remove(display)
+        displays.Remove(display);
     }
 
     private void MeasurementsChanged()
