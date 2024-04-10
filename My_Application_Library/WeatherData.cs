@@ -13,12 +13,16 @@ public class WeatherData
     {
         random = new Random();
     }
-
-    public static WeatherData GetInstance()
+    private List<IDisplay> shows = new List<IDisplay>();
+    public static WeatherData GetInstance
     {
+        get
+        {
         return instance ??= new WeatherData();
+        }
     }
 
+    public void subscribe
     public void SetMeasurements()
     {
         temperature = random.Next(-20, 40);
@@ -26,22 +30,6 @@ public class WeatherData
         pressure = random.Next(980, 1040);
         MeasurementsChanged();
     }
-
-    public float GetTemperature()
-    {
-        return temperature;
-    }
-
-    public float GetHumidity()
-    {
-        return humidity;
-    }
-
-    public float GetPressure()
-    {
-        return pressure;
-    }
-
     private void MeasurementsChanged()
     {
         CurrentCondition.GetInstance().Update();

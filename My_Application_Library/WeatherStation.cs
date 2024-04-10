@@ -3,42 +3,25 @@
 /// </summary>
 public class WeatherStation
 {
-    public void GetUserInput()
+    public void IDisplay SelectDisplay(string choice)
     {
-        Console.WriteLine("Select display type:");
-        Console.WriteLine("1. Current Conditions");
-        Console.WriteLine("2. Statistics");
-        Console.WriteLine("3. Forecast");
-        Console.Write("Enter your choice: ");
-
-        string choice = Console.ReadLine();
-        DisplayType displayType;
-
         switch (choice)
         {
             case "1":
-                displayType = DisplayType.CurrentCondition;
-                break;
+               CurrentCondition A = new CurrentCondition();
+               return A;
+                //break;
             case "2":
-                displayType = DisplayType.Statistics;
-                break;
+                ForecastDisplay B = new ForecastDisplay();
+               return B;                
+               //break;
             case "3":
-                displayType = DisplayType.Forecast;
-                break;
+                StatisticsDisplay C = new StatisticsDisplay();
+               return C;                
+               //break;
             default:
                 Console.WriteLine("Invalid choice. Please try again.");
                 return;
         }
-        
-
-}
-}
-/// <summary>
-/// Enumerates the types of displays.
-/// </summary>
-public enum DisplayType
-{
-    CurrentCondition,
-    Statistics,
-    Forecast
+    }
 }

@@ -26,7 +26,6 @@ public class CurrentCondition : IDisplay
         float humidity = weatherData.GetHumidity();
         float pressure = weatherData.GetPressure();
 
-        // Display current conditions
         Console.WriteLine($"Current conditions: {temperature}F degrees and {humidity}% humidity");
     }
 }
