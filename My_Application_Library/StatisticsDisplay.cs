@@ -1,10 +1,9 @@
-/// <summary>
-/// Represents the weather statistics display.
-/// </summary>
+///<summary>
+///Represents the weather statistics display.
+///</summary>
 public class StatisticsDisplay : IDisplay
 {
     private List<float> temperatures = new List<float>();
-
 
     public void Display(float temperature, float humidity, float pressure)
     {

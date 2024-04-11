@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-/// <summary>
-/// This is for the weather data subject.
-/// </summary>
+///<summary>
+///This is for the weather data subject.
+///</summary>
 public class WeatherData
 {
     private static WeatherData instance;
@@ -12,7 +12,7 @@ public class WeatherData
 
     private WeatherData()
     {
-        //random = new Random();
+       
     }
     private List<IDisplay> displays = new List<IDisplay>();
 
@@ -29,9 +29,9 @@ public class WeatherData
     }
     public void SetMeasurements(float temperature, float humidity, float pressure)
     {
-        this.temperature = temperature; //random.Next(-20, 40);
-        this.humidity = humidity; //random.Next(0, 100);
-        this.pressure = pressure; //random.Next(980, 1040);
+        this.temperature = temperature;
+        this.humidity = humidity; 
+        this.pressure = pressure; 
         MeasurementsChanged();
     }
     public void Subscribe(IDisplay display)
